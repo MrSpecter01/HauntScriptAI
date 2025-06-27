@@ -1,0 +1,38 @@
+import os
+from dotenv import load_dotenv
+from google import genai
+from google.genai import types
+from PIL import Image
+from io import BytesIO
+import base64
+
+from promptmaker import visual_prompt
+
+# Load API key
+load_dotenv()
+api_key = os.getenv("api_key")
+
+client = genai.Client(api_key=api_key)
+
+def generate_cover_image(story_text):
+    """
+    Generates a horror-cover image based on the story text.
+    Returns a PIL Image object.
+    """
+    # Formulate image prompt
+    prompt = visual_prompt(story_text)
+
+    # Call Gemini preview image generation
+    response = client.models.generate_content(
+        model="gemini-2.0-flash-preview-image-generation",
+        contents=[prompt],
+        config=types.GenerateContentConfig(response_modalities=["TEXT", "IMAGE"]),
+    )
+
+    # Extract image data
+    for part in response.candidates[0].content.parts:
+        if part.inline_data:
+            img = Image.open(BytesIO(part.inline_data.data))
+            return img
+
+    raise RuntimeError("No image returned by Gemini.")
