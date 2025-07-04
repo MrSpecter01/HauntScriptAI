@@ -34,6 +34,7 @@ model = genai.GenerativeModel(
     generation_config=generation_config,
 )
 
+
 def rephrase_prompt(custom_prompt:str) -> str:
     """Uses Gemini 2.0 Flash to generate a re-phrased custom horror story prompt given by the user."""
     user_message = (
@@ -41,6 +42,7 @@ def rephrase_prompt(custom_prompt:str) -> str:
     )
 
     # Gemini instruction for crafting prompts
+    #8757
     system_instruction = (
     "You are an expert prompt engineer for horror story generation. "
     "Your job is to help the user rephrase their prompt to get effective response from an AI model "
@@ -53,6 +55,8 @@ def rephrase_prompt(custom_prompt:str) -> str:
         return response.text.strip()
     except Exception as e:
         return f"Error generating prompt: {e}"
+    
+
 
 def craft_horror_prompt(genre: str, character: str, situation: str, num_lines: int, references: str, vocab: str, context:str) -> str:
     """Uses Gemini 2.0 Flash to generate a horror story prompt based on the given inputs."""
@@ -79,6 +83,7 @@ def craft_horror_prompt(genre: str, character: str, situation: str, num_lines: i
     "Your job is to create a clear and vivid prompt for a story-writing AI, based on basic input data. "
     "Make sure the prompt is structured, creative, and well-suited to produce a chilling story."
     "do not add much extra details to the prompt, keep it clean and make sure to use the given input data"
+    "Use names and terms from the prompt as mention. Add brief descriptive detail only if relevant — do not rename or substitute any provided terms."
     )
 
     try:
@@ -91,10 +96,11 @@ def craft_horror_prompt(genre: str, character: str, situation: str, num_lines: i
 def visual_prompt(story_text):
     """Uses Gemini 2.0 Flash to generate a horror story visual prompt based on the given story."""
 
-    system_instruction = (
-        "You are an assistant that transforms full horror stories into short, vivid visual prompts. "
-        "Focus on the most important and creepy visual themes. Avoid naming characters. "
-        "Output only a short scene description (one or two sentences) suitable for generating a book cover image."
+    system_instruction = ("You are an assistant that reads horror stories and generates vivid, visually descriptive image prompts suitable for AI image generation."
+    "Your goal is to extract key visual elements, including characters, locations, and distinctive scenes from the story, and summarize them as a single, coherent prompt."
+    "Focus on creating eerie, cinematic, and suspenseful imagery that tells a story in one frame. Include important characters or supernatural entities, such as haunted figures, lone survivors, ominous silhouettes, or threatening presences, when relevant."
+    "Use language that evokes mood, ambiance, and story tension without including graphic violence, blood, gore, nudity, or explicit content. The final prompt must be safe for content filters, suitable for general audiences, and rich enough to guide high-quality horror-themed visuals."
+    "Always aim for strong visual storytelling, with a balance of creepy setting, character presence, and atmospheric detail."
     )
 
     user_input = (
@@ -107,7 +113,3 @@ def visual_prompt(story_text):
         return response.text.strip()
     except Exception as e:
         return f"Error generating prompt: {e}"
-
-#propo = craft_horror_prompt("","jake","dark forest, with thick fog",5)
-
-#print(propo)
