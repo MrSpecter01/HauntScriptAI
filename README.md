@@ -4,6 +4,7 @@
 HauntScript uses AI to generate spine-chilling horror stories from user prompts, offering an effortless tool for writers, creators, and horror enthusiasts. With a simple and intuitive interface, users can shape their story by selecting a horror subgenre, naming characters, defining the situation, and even setting the desired story length. For more control, HauntScript includes an advanced menu that allows temperature adjustment for creativity, uploading a reference .txt file, setting a custom prompt (which overrides all other inputs), adding context, and choosing a preferred vocabulary style. Once the story is generated, users can easily download it as a .txt file, making HauntScript a powerful yet accessible tool for anyone looking to bring terrifying tales to life.
 
 ## Visuals/Demo Video of the project:
+https://drive.google.com/file/d/122NoGe0eRtMRU64Z9AT0UXdfbDqlbvIC/view?usp=sharing
 
 ## Key Features:
 - Generate horror stories from user inputs (sub-genre, character, setting, length)
@@ -22,7 +23,7 @@ HauntScript uses AI to generate spine-chilling horror stories from user prompts,
 You need python, git installed and, a valid Gemini API Key in order to setup and run this web-app. You can install them by following any tutorial on the internet.
 
 ### Follow these below steps to setup and use the web-app:
-1. Clone the repo by using the command: `git clone https://github.com/HauntScriptAI`
+1. Clone the repo by using the command: `git clone https://github.com/MrSpecter01/HauntScriptAI.git`
 2. Change into the directory: `cd HauntScriptAI`
 3. Install UV: `pip install uv`
 #### Steps 4 and 5 are optional
