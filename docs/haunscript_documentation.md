@@ -12,7 +12,7 @@ HauntScript AI is a web-based application that generates custom horror stories u
 
 ### Installation
 ```bash
-git clone <repository-url>
+git clone https://github.com/MrSpecter01/HauntScriptAI.git
 cd HORROR
 pip install uv
 uv pip install -r requirements.txt

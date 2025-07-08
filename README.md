@@ -31,7 +31,7 @@ You need python, git installed and, a valid Gemini API Key in order to setup and
 5. Activate the Virtual Environment: `.venv\Scripts\activate`
 6. Install all the dependencies using the following command: `uv pip install -r requirements.txt`
 7. Add your Gemini API Key in the .env file.
-8. Start up the StreamLit app: `streamlit run horror.py`
+8. Start up the StreamLit app: `streamlit run app.py`
 9. Once the app is up and running, you will get a local url for the web-app, use it to open it in your web browser. It will look something like this: `http://localhost:8501`
 10. Follow the steps there to generate a Horror Story.
 

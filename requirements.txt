@@ -1,5 +1,7 @@
+google.genai
 google.generativeai
 streamlit
 dotenv
 pillow
 datetime
+google
